@@ -1,5 +1,11 @@
 # version-example
 
+## 3.3.0
+
+### Minor Changes
+
+- 55844ea: Update minor
+
 ## 3.0.1
 
 ### Patch Changes
