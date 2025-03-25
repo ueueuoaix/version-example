@@ -1,5 +1,11 @@
 # version-example
 
+## 3.0.1
+
+### Patch Changes
+
+- a1f2870: Last changes
+
 ## 3.0.0
 
 ### Major Changes
