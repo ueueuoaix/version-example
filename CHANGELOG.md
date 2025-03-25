@@ -1,5 +1,11 @@
 # version-example
 
+## 2.1.0
+
+### Minor Changes
+
+- 9379ad8: Update something
+
 ## 2.0.0
 
 ### Major Changes
