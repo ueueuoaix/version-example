@@ -1,5 +1,11 @@
 # version-example
 
+## 3.3.2
+
+### Patch Changes
+
+- 4033679: CI: fix release
+
 ## 3.3.1
 
 ### Patch Changes
