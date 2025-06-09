@@ -1,5 +1,11 @@
 # version-example
 
+## 3.3.4
+
+### Patch Changes
+
+- eaecb8b: Skip ci for changesets version commit
+
 ## 3.3.3
 
 ### Patch Changes
