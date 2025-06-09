@@ -23,11 +23,9 @@ jobs:
       - name: Install only changesets
         run: npm install --no-save @changesets/cli
 
-      - name: Bump version
-        run: npx changeset version
-
-      - name: Push changes
+      - name: Bump changes version
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
+          npx changeset version
           git push
