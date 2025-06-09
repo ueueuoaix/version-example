@@ -34,6 +34,6 @@ jobs:
           if git diff --staged --quiet; then
             echo "No changes to commit"
           else
-            git commit -m "chore(deps): bump kaiten $prev_version -> $next_version"
+            git commit -m "chore(deps): bump kaiten $prev_version -> $next_version" -m "[skip ci]"
             git push
           fi
