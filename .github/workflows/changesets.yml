@@ -27,5 +27,13 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
+          prev_version=$(jq -r '.version' package.json)
           npx changeset version
-          git push
+          next_version=$(jq -r '.version' package.json)
+          git add .
+          if git diff --staged --quiet; then
+            echo "No changes to commit"
+          else
+            git commit -m "chore(deps): bump kaiten $prev_version -> $next_version"
+            git push
+          fi
