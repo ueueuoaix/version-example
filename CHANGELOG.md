@@ -1,5 +1,13 @@
 # version-example
 
+## 3.3.1
+
+### Patch Changes
+
+- 10e563c: Change CI
+- 539c303: Install only changesets
+- b8ff906: Bump after setting git user
+
 ## 3.3.0
 
 ### Minor Changes
