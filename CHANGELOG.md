@@ -1,5 +1,11 @@
 # version-example
 
+## 3.3.3
+
+### Patch Changes
+
+- 4ec83c0: Disable changesets commit
+
 ## 3.3.2
 
 ### Patch Changes
