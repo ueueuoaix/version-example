@@ -20,7 +20,11 @@ jobs:
         with:
           node-version: 20
 
-      - run: npx changeset version
+      - name: Install only changesets
+        run: npm install --no-save @changesets/cli
+
+      - name: Bump version
+        run: npx changeset version
 
       - name: Push changes
         run: |
