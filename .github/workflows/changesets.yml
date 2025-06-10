@@ -23,6 +23,9 @@ jobs:
       - name: Install only changesets
         run: npm install --no-save @changesets/cli
 
+      - name: Check changesets
+        run: npx changeset status
+
       - name: Bump changes version
         run: |
           git config user.name "github-actions[bot]"
