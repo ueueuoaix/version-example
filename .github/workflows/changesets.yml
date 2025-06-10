@@ -24,7 +24,11 @@ jobs:
         run: npm install --no-save @changesets/cli
 
       - name: Check changesets
-        run: npx changeset status
+        run: |
+          if [ ! -e .changeset/*.md ]; then
+            echo "Нет changeset-файла! Добавьте его."
+            exit 1
+          fi
 
       - name: Bump changes version
         run: |
