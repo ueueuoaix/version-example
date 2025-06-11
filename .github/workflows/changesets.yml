@@ -9,7 +9,7 @@ permissions:
   contents: write
 
 jobs:
-  release:
+  version-bump:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repo
@@ -27,15 +27,24 @@ jobs:
 
       - name: Bump changes version
         run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
-          prev_version=$(jq -r '.version' package.json)
           npx changeset version
-          next_version=$(jq -r '.version' package.json)
-          git add .
-          if git diff --staged --quiet; then
-            echo "No changes to commit"
-          else
-            git commit -m "chore(deps): bump kaiten $prev_version -> $next_version" -m "[skip ci]"
-            git push
-          fi
+          echo "TAG=$(jq -r '.version' package.json)" >> $GITHUB_ENV
+
+      - name: Commit and push changes
+        uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: 'Update image tag to ${{ env.TAG }} [skip ci]'
+
+      - name: Create github release
+        uses: ncipollo/release-action@v1
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          name: "${{ env.TAG }}"
+          tag: "${{ env.TAG }}"
+
+  deploy:
+    needs: version-bump
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo released!
