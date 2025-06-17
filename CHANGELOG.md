@@ -1,5 +1,11 @@
 # version-example
 
+## 3.3.11
+
+### Patch Changes
+
+- 5b7a1dc: revert changes
+
 ## 3.3.10
 
 ### Patch Changes
