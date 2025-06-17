@@ -10,7 +10,7 @@ permissions:
 
 jobs:
   version-bump:
-    uses: .github/workflows/changesets.yml
+    uses: ./.github/workflows/changesets.yml
     secrets: inherit
     outputs:
       commit_sha: ${{ jobs.version-bump.outputs.commit_sha }}
