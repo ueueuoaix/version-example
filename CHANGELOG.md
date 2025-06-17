@@ -1,5 +1,11 @@
 # version-example
 
+## 3.3.9
+
+### Patch Changes
+
+- 78fea9c: test
+
 ## 3.3.8
 
 ### Patch Changes
