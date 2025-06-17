@@ -1,5 +1,11 @@
 # version-example
 
+## 3.3.6
+
+### Patch Changes
+
+- 6f34b64: test bump version
+
 ## 3.3.4
 
 ### Patch Changes
