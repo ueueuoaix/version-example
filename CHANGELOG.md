@@ -1,5 +1,11 @@
 # version-example
 
+## 3.3.10
+
+### Patch Changes
+
+- 92a2176: try to remove ref
+
 ## 3.3.9
 
 ### Patch Changes
