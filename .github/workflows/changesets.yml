@@ -63,4 +63,12 @@ jobs:
     needs: version-bump
     runs-on: ubuntu-latest
     steps:
-      - run: echo released!
+      - name: Checkout Repo
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.PAT || secrets.GITHUB_TOKEN }}
+
+      - name: Compare package.json version with master
+        run: |
+          current_version=$(jq -r .version package.json)
+          echo "Current version: $current_version"
