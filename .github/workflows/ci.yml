@@ -17,3 +17,5 @@ jobs:
   deploy:
     needs: version-bump
     uses: ./.github/workflows/deploy.yml
+    with:
+      ref: ${{ needs.version-bump.outputs.commit_sha }}
