@@ -17,13 +17,27 @@ jobs:
         with:
           token: ${{ secrets.PAT || secrets.GITHUB_TOKEN }}
 
+      - name: Fetch master branch
+        run: git fetch origin master
+
+      - name: Compare package.json version with master
+        run: |
+          current_version=$(jq -r .version package.json)
+          master_version=$(git show origin/master:package.json | jq -r .version)
+          echo "Current version: $current_version"
+          echo "Master version: $master_version"
+          if [ "$current_version" != "$master_version" ]; then
+            echo "The version in package.json has changed compared to master. Please use 'yarn changeset'."
+            exit 1
+          fi
+
       - name: Install only changesets
         run: npm install --no-save @changesets/cli
 
       - name: Check changesets
         run: |
           if [ ! -e .changeset/*.md ]; then
-            echo "Нет changeset-файла! Добавьте его."
+            echo "No changeset file found. Please use 'yarn changeset'."
             exit 1
           fi
 
