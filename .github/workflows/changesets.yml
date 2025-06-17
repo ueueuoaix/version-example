@@ -32,6 +32,10 @@ jobs:
         with:
           commit_message: 'Update image tag to ${{ env.TAG }} [skip ci]'
 
+      - name: Get new commit SHA
+        id: get_sha
+        run: echo "commit_sha=$(git rev-parse HEAD)" >> $GITHUB_OUTPUT
+
       - name: Create github release
         uses: ncipollo/release-action@v1
         env:
