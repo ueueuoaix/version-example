@@ -1,0 +1,23 @@
+name: Changesets
+
+on:
+  workflow_call:
+    inputs:
+      ref:
+        required: false
+        type: string
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.PAT || secrets.GITHUB_TOKEN }}
+          ref: ${{ inputs.REF || github.sha }}
+
+      - name: Compare package.json version with master
+        run: |
+          current_version=$(jq -r .version package.json)
+          echo "Current version: $current_version"
