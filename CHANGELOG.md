@@ -1,5 +1,11 @@
 # version-example
 
+## 3.3.8
+
+### Patch Changes
+
+- 908ca6e: add missed get sha step
+
 ## 3.3.7
 
 ### Patch Changes
