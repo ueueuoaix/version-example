@@ -1,5 +1,11 @@
 # version-example
 
+## 3.3.7
+
+### Patch Changes
+
+- 097f525: try to fix
+
 ## 3.3.6
 
 ### Patch Changes
