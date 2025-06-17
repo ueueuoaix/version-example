@@ -2,6 +2,9 @@ name: Changesets
 
 on:
   workflow_call:
+    outputs:
+      commit_sha:
+        value: ${{ jobs.version-bump.outputs.commit_sha }}
 
 jobs:
   version-bump:
